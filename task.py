@@ -24,7 +24,7 @@ def filter_bugs(bugs_list, status, severity):
         return[]
     result = []
     for bug in bugs_list:
-        if bug["statys"] == norm_status and bug["severity"] == norm_severity:
+        if bug["status"] == norm_status and bug["severity"] == norm_severity:
             result.append(bug)
     return result 
 #3
@@ -57,7 +57,7 @@ def change_status(bugs_list, bug_id, new_status):
     bug = find_bug(bugs_list,bug_id)
     if bug is None:
         return "not_found"
-    current_statys = bug["statys"]
+    current_statys = bug["status"]
     allowed_transitions = {
         "open": {"in_progress"},
         "in_progress": {"open", "closed"},
